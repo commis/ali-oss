@@ -12,11 +12,16 @@ export function getReqUrl(this: any, params) {
   checkConfigValid(this.options.endpoint, 'endpoint');
   copy(this.options.endpoint, false).to(ep);
 
+  let resourcePath = '';
+  if (ep.path !== "" && ep.path !== "/") {
+    this.options.sldEnable = true;
+    resourcePath += `${ep.path}/`;
+  }
+
   if (params.bucket && !isCname && !isIP(ep.hostname) && !this.options.sldEnable) {
     ep.host = `${params.bucket}.${ep.host}`;
   }
 
-  let resourcePath = '/';
   if (params.bucket && (this.options.sldEnable)) {
     resourcePath += `${params.bucket}/`;
   }
