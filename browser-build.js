@@ -87,7 +87,7 @@ function build(options, callback) {
 if (require.main === module) {
   var opts = {
     // 高版本环境变量变成了字符串
-    minify: process.env.MINIFY == 1 ? true : false
+    minify: process.env.MINIFY == 1
   };
 
   build(opts, function(err, code) {
