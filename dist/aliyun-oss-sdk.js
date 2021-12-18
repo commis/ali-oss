@@ -458,7 +458,7 @@ function _appendExtendSignHeader(reqParams, options) {
   reqParams.params.headers['X-HMAC-SIGNATURE'] = signature;
   reqParams.params.headers['X-HMAC-ALGORITHM'] = 'hmac-sha1';
   reqParams.params.headers['X-HMAC-ACCESS-KEY'] = options.deviceId;
-  reqParams.params.headers['Date'] = httpDate;
+  reqParams.params.headers['X-Date'] = httpDate;
   reqParams.params.headers['X-HMAC-SIGNED-HEADERS'] = 'x-user-agent';
   reqParams.params.headers['x-user-agent'] = 'NodeJS-SDK';
 }
